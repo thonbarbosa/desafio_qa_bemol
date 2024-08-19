@@ -1,0 +1,24 @@
+Feature: Cadastro de novo usuário
+
+  Scenario: Cadastro com sucesso
+    Given que estou na página de cadastro
+    When preencho os campos obrigatórios com informações válidas
+    And clico no botão "Cadastrar"
+    Then minha conta deve ser criada com sucesso
+    And eu devo ser redirecionado para a página de perfil
+
+  Scenario: Falha no cadastro por e-mail inválido
+    Given que estou na página de cadastro
+    When preencho o campo de e-mail com um e-mail inválido
+    And tento submeter o formulário
+    Then devo ver uma mensagem de erro de validação
+
+    Feature: Pesquisa de vagas
+
+  Scenario: Pesquisa de vagas com critérios válidos
+    Given que estou na página inicial do Infojobs
+    When insiro "Desenvolvedor" no campo de pesquisa
+    And seleciono a localização "São Paulo"
+    And clico no botão de pesquisar
+    Then devo ver uma lista de vagas relacionadas a "Desenvolvedor" em "São Paulo"
+
